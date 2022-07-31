@@ -5,43 +5,43 @@
 class Lets < Formula
   desc "Software to create fast and easy drum rolls."
   homepage "https://let.sh/"
-  version "0.2.46"
+  version "0.2.47"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "http://install.let-sh.com/cli_0.2.46_darwin_arm64.tar.gz"
-      sha256 "196b6e22c581108e0888ff89c86e5cfaa956e45ba03abff9ebdbd1a90aeae010"
+    if Hardware::CPU.intel?
+      url "http://install.let-sh.com/cli_0.2.47_darwin_amd64.tar.gz"
+      sha256 "f7fe6d9c5573f6839fc37c8ae97696c486dc6e6a2f0590df998b05463bda39e9"
 
       def install
-        bin.install "program"
+        bin.install "lets"
       end
     end
-    if Hardware::CPU.intel?
-      url "http://install.let-sh.com/cli_0.2.46_darwin_amd64.tar.gz"
-      sha256 "8b813450104d211d124e1ca608f8c7e8ea63801c6e722b523637c6a1408ba1d3"
+    if Hardware::CPU.arm?
+      url "http://install.let-sh.com/cli_0.2.47_darwin_arm64.tar.gz"
+      sha256 "f8f9ac984ed75af025a167b060a3b8a42b6bb8ef8d9fbbc12afa77654e4b96f8"
 
       def install
-        bin.install "program"
+        bin.install "lets"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "http://install.let-sh.com/cli_0.2.46_linux_arm64.tar.gz"
-      sha256 "7573acf2282fd1b9b1158f195f6fb4f7893f2ac4a877ecf46d17a9312c1aca56"
+    if Hardware::CPU.intel?
+      url "http://install.let-sh.com/cli_0.2.47_linux_amd64.tar.gz"
+      sha256 "e2aa3564c0b6c278599e972113767a5a9f63f64536b5e7e61d07d879c93b892a"
 
       def install
-        bin.install "program"
+        bin.install "lets"
       end
     end
-    if Hardware::CPU.intel?
-      url "http://install.let-sh.com/cli_0.2.46_linux_amd64.tar.gz"
-      sha256 "b9fe835d005270c86c3257e892d59f8f8882a93291ed0c84fa09d2f93f95b637"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "http://install.let-sh.com/cli_0.2.47_linux_arm64.tar.gz"
+      sha256 "dba413a7d6da271834c06e74fc4a3a2a638e31262d7236412ccf3f9e7422db4e"
 
       def install
-        bin.install "program"
+        bin.install "lets"
       end
     end
   end
@@ -55,6 +55,6 @@ class Lets < Formula
   end
 
   test do
-    system "#{bin}/program version"
+    system "#{bin}/lets version"
   end
 end
